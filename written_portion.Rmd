@@ -1,0 +1,92 @@
+---
+title: "SDS236 Final Project"
+author: "Jeny Kwon"
+date: "4/24/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE,  fig.width = 7.5, fig.height = 3.5)
+
+library(tidyverse)
+library(rvest)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+```
+
+```{r}
+# Read csv file
+top100 <- read_csv("data/top_songs.csv")
+```
+
+
+```{r}
+by_artist <- top100 %>% 
+  select(!week) %>% 
+  group_by(artist) %>% 
+  summarize(number = n()) %>%
+  arrange(desc(number))
+
+View(by_artist)
+```
+
+## Who is at the top of the music industry? Billboard's Hot 100 Chart says it's only a small number of artists
+
+Many people dream of becoming well-known musicians. After all, celebrities not only earn a lot of money, but they also get special treatment. According to our analysis, a total of 509 artists made Billboard's Hot 100 Chart in 2019 and 2020 year-to-date and reached the well-sought out top status in the music industry. For context, there are a total of 6,800 spots in total as 100 songs are placed on the chart every week, and this analysis considers 68 weeks in total. The complete list of artists that made the Hot 100 chart can be found here: 
+
+Eight hundred and fifty artists may seem like a large number, but according to the U.S. Bureau of Labor Statistics, there are a total of 41,680 musicians and singers in the United States as of May 2018.^[U.S. Bureau of Labor Statistics. "Occupational Employment and Wages, 27-2042 Musicians and Singers" https://www.bls.gov/oes/2018/may/oes272042.htm] Furthermore, this figure does not include people who are pursuing music as a side-hobby or self-employed workers. 
+
+The 850 artists are considered incredibly successful, as they created a song in the Hot 100 chart; however, in order to determine how difficult it is to reach the very top of the music industry, we looked at how many artists achieved the number one spot during the same 68-week period in 2019 and 2020. According to Billboard, this chart is updated on a weekly basis, and it resets every Sunday.^[Billboard. “The Hot 100” https://www.billboard.com/charts/hot-100]
+
+After collecting all 100 songs and artists in the chart for each week in 2019 and 2020 so far, we found the following results: 1) only a few artists make it to the top of the music industry and 2) even artists that make it to the coveted top position in the chart have difficulty regaining that position within the same year or two.  
+
+The graph below shows which artist was ranked at the top each week during the 68-week period covering 2019 and 2020. Each bar that corresponds to an artist is separated into different colors if they made the top rank with different songs. Out of the 17 total artists that made 1st place on the chart, the only artists that have more than one song are Ariana Grande and The Weekend. Ariana Grande made 1st place on Billboard’s Hot 100 Chart a total of 9 times. However, one of those times was with the song “Thank U, Next”, while the other 8 times were with the song “7 Rings”. The Weekend was very successful with the songs “Heartless” and “Blinding Lights”, which made the chart 1 and 2 times respectively.
+
+```{r}
+# Most popular song (rank 1) in 2019 and 2020 YTD
+
+rank1 <- top100 %>% 
+  filter(rank == 1) %>% 
+  select(!week) %>% 
+  group_by(artist, song) %>% 
+  summarize(number = n()) %>%
+  arrange(desc(number))
+
+# Graph of Rank 1 songs & artists
+rank1_frequency <- ggplot(rank1, aes(str_wrap(artist, 20), number, fill = song)) +
+  theme(legend.position="none") +
+  aes(x = fct_inorder(artist)) +
+  labs(x = "Artist", 
+              y="Frequency at Rank 1",
+              title="Artists at Rank 1 on Billboard's Hot 100 Chart (2019-2020 YTD)",
+              subtitle="Separated by Song",
+              caption="source: https://www.billboard.com/charts/hot-100. 68 weeks") + 
+  coord_flip() +
+  geom_col() +
+  scale_fill_hue(l= 60, c = 60) 
+
+rank1_frequency
+```
+
+\pagebreak
+
+More details on which songs put these artists at the number one spot can be found in the table below: 
+
+```{r}
+kable(rank1, caption = "Billboard Hot 100 Chart's Rank 1 by Artist and Song (2019-2020 YTD)")
+```
+
+Some of these artists spend a lot of time training and planning to be acknowledged as the best in the music industry. 
+
+
+Steve Lee, a local aspiring musician from Atlanta, GA, said that “technology can help current musicians gain popularity and attention.” Media platforms such as YouTube, TikTok, and Instagram have allowed people to quickly share their singing with up to millions of people. When referring to reaching the top of the industry, Lee says “if you want to make a living out of singing and be super famous, technology might not be enough- only a few people gain continued popularity.” Instead, he says that “your network is your biggest asset- much like in any other industry.” 
+
+
+During the 68-week period that the graph includes, only 17 artists made it to 1st place on Billboard’s Hot 100 chart. Most of these artists only held the spot for one week. Five of the artists held it for 2 or 3 weeks, and only 4 artists occupied the top rank for more than 3 weeks. Even artists who are on this list and are considered famous only made the chart with one song during the 68 weeks. 
+
+All this data and Lee’s insights show that it is indeed very difficult to reach the top of the industry. Furthermore, hard work is not all someone needs to make it in music. 
+
+

@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Jeny Kwon" />
+
+
+<title>Artists and Songs on Billboard’s Hot 100 Chart (2019-2020 YTD)</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Billboard's Hot 100 Chart</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Data</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Artists and Songs on Billboard’s Hot 100 Chart (2019-2020 YTD)</h1>
+<h4 class="author">Jeny Kwon</h4>
+<h4 class="date">4/29/2020</h4>
+
+</div>
+
+
+<p>The following table shows which artists and songs have made Billboard’s Hot 100 Chart during a 68-week period in 2019 and 2020. The table is arranged by the number of times each song made the chart.</p>
+<table>
+<caption>Top Artists and Song (source = <a href="https://www.billboard.com/charts/hot-100" class="uri">https://www.billboard.com/charts/hot-100</a>)</caption>
+<thead>
+<tr class="header">
+<th align="left">Artist</th>
+<th align="right">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Billie Eilish</td>
+<td align="right">175</td>
+</tr>
+<tr class="even">
+<td align="left">Jonas Brothers</td>
+<td align="right">116</td>
+</tr>
+<tr class="odd">
+<td align="left">Post Malone</td>
+<td align="right">116</td>
+</tr>
+<tr class="even">
+<td align="left">Ariana Grande</td>
+<td align="right">109</td>
+</tr>
+<tr class="odd">
+<td align="left">DaBaby</td>
+<td align="right">96</td>
+</tr>
+<tr class="even">
+<td align="left">Khalid</td>
+<td align="right">86</td>
+</tr>
+<tr class="odd">
+<td align="left">Halsey</td>
+<td align="right">85</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Baby</td>
+<td align="right">79</td>
+</tr>
+<tr class="odd">
+<td align="left">Lizzo</td>
+<td align="right">76</td>
+</tr>
+<tr class="even">
+<td align="left">Luke Combs</td>
+<td align="right">75</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Uzi Vert</td>
+<td align="right">74</td>
+</tr>
+<tr class="even">
+<td align="left">Taylor Swift</td>
+<td align="right">69</td>
+</tr>
+<tr class="odd">
+<td align="left">Travis Scott</td>
+<td align="right">66</td>
+</tr>
+<tr class="even">
+<td align="left">Juice WRLD</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">YoungBoy Never Broke Again</td>
+<td align="right">62</td>
+</tr>
+<tr class="even">
+<td align="left">The Weeknd</td>
+<td align="right">60</td>
+</tr>
+<tr class="odd">
+<td align="left">Lewis Capaldi</td>
+<td align="right">58</td>
+</tr>
+<tr class="even">
+<td align="left">Dan + Shay</td>
+<td align="right">57</td>
+</tr>
+<tr class="odd">
+<td align="left">Panic! At The Disco</td>
+<td align="right">56</td>
+</tr>
+<tr class="even">
+<td align="left">Maren Morris</td>
+<td align="right">50</td>
+</tr>
+<tr class="odd">
+<td align="left">Jason Aldean</td>
+<td align="right">49</td>
+</tr>
+<tr class="even">
+<td align="left">Luke Bryan</td>
+<td align="right">49</td>
+</tr>
+<tr class="odd">
+<td align="left">Old Dominion</td>
+<td align="right">48</td>
+</tr>
+<tr class="even">
+<td align="left">Thomas Rhett</td>
+<td align="right">47</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Nas X Featuring Billy Ray Cyrus</td>
+<td align="right">45</td>
+</tr>
+<tr class="even">
+<td align="left">Sam Smith &amp; Normani</td>
+<td align="right">45</td>
+</tr>
+<tr class="odd">
+<td align="left">Chris Brown Featuring Drake</td>
+<td align="right">44</td>
+</tr>
+<tr class="even">
+<td align="left">Post Malone &amp; Swae Lee</td>
+<td align="right">44</td>
+</tr>
+<tr class="odd">
+<td align="left">Kane Brown</td>
+<td align="right">43</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Tecca</td>
+<td align="right">41</td>
+</tr>
+<tr class="odd">
+<td align="left">NLE Choppa</td>
+<td align="right">41</td>
+</tr>
+<tr class="even">
+<td align="left">21 Savage</td>
+<td align="right">39</td>
+</tr>
+<tr class="odd">
+<td align="left">Ed Sheeran &amp; Justin Bieber</td>
+<td align="right">39</td>
+</tr>
+<tr class="even">
+<td align="left">SHAED</td>
+<td align="right">39</td>
+</tr>
+<tr class="odd">
+<td align="left">Morgan Wallen</td>
+<td align="right">38</td>
+</tr>
+<tr class="even">
+<td align="left">Mustard &amp; Roddy Ricch</td>
+<td align="right">38</td>
+</tr>
+<tr class="odd">
+<td align="left">A Boogie Wit da Hoodie</td>
+<td align="right">37</td>
+</tr>
+<tr class="even">
+<td align="left">Shawn Mendes &amp; Camila Cabello</td>
+<td align="right">37</td>
+</tr>
+<tr class="odd">
+<td align="left">Jon Pardi</td>
+<td align="right">36</td>
+</tr>
+<tr class="even">
+<td align="left">5 Seconds Of Summer</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">Bad Bunny</td>
+<td align="right">35</td>
+</tr>
+<tr class="even">
+<td align="left">Harry Styles</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">Selena Gomez</td>
+<td align="right">35</td>
+</tr>
+<tr class="even">
+<td align="left">Ava Max</td>
+<td align="right">34</td>
+</tr>
+<tr class="odd">
+<td align="left">Marshmello &amp; Bastille</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="left">Meek Mill Featuring Drake</td>
+<td align="right">34</td>
+</tr>
+<tr class="odd">
+<td align="left">Cardi B</td>
+<td align="right">33</td>
+</tr>
+<tr class="even">
+<td align="left">Kelsea Ballerini</td>
+<td align="right">33</td>
+</tr>
+<tr class="odd">
+<td align="left">Lady Gaga &amp; Bradley Cooper</td>
+<td align="right">33</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Nas X</td>
+<td align="right">32</td>
+</tr>
+<tr class="odd">
+<td align="left">Brett Young</td>
+<td align="right">31</td>
+</tr>
+<tr class="even">
+<td align="left">blackbear</td>
+<td align="right">30</td>
+</tr>
+<tr class="odd">
+<td align="left">Rod Wave</td>
+<td align="right">30</td>
+</tr>
+<tr class="even">
+<td align="left">benny blanco, Halsey &amp; Khalid</td>
+<td align="right">29</td>
+</tr>
+<tr class="odd">
+<td align="left">Maroon 5</td>
+<td align="right">29</td>
+</tr>
+<tr class="even">
+<td align="left">Dustin Lynch</td>
+<td align="right">28</td>
+</tr>
+<tr class="odd">
+<td align="left">Dan + Shay &amp; Justin Bieber</td>
+<td align="right">27</td>
+</tr>
+<tr class="even">
+<td align="left">Dua Lipa</td>
+<td align="right">27</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida Georgia Line</td>
+<td align="right">27</td>
+</tr>
+<tr class="even">
+<td align="left">J. Cole</td>
+<td align="right">27</td>
+</tr>
+<tr class="odd">
+<td align="left">Jordan Davis</td>
+<td align="right">27</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Baby &amp; Gunna</td>
+<td align="right">27</td>
+</tr>
+<tr class="odd">
+<td align="left">Polo G Featuring Lil Tjay</td>
+<td align="right">27</td>
+</tr>
+<tr class="even">
+<td align="left">Tones And I</td>
+<td align="right">27</td>
+</tr>
+<tr class="odd">
+<td align="left">Young Thug Featuring Gunna</td>
+<td align="right">27</td>
+</tr>
+<tr class="even">
+<td align="left">Calboy</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="left">Ed Sheeran Featuring Khalid</td>
+<td align="right">26</td>
+</tr>
+<tr class="even">
+<td align="left">Megan Thee Stallion</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="left">Sam Smith</td>
+<td align="right">26</td>
+</tr>
+<tr class="even">
+<td align="left">Daddy Yankee &amp; Katy Perry Featuring Snow</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="left">Mustard &amp; Migos</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="left">YK Osiris</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="left">Jake Owen</td>
+<td align="right">24</td>
+</tr>
+<tr class="even">
+<td align="left">NF</td>
+<td align="right">24</td>
+</tr>
+<tr class="odd">
+<td align="left">Summer Walker</td>
+<td align="right">24</td>
+</tr>
+<tr class="even">
+<td align="left">Arizona Zervas</td>
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="left">Blake Shelton</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">Carrie Underwood</td>
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="left">Drake Featuring Rick Ross</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">Ella Mai</td>
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="left">Marshmello &amp; Kane Brown</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">Sam Hunt</td>
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="left">Shawn Mendes</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">Wale Featuring Jeremih</td>
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="left">Maroon 5 Featuring Cardi B</td>
+<td align="right">22</td>
+</tr>
+<tr class="even">
+<td align="left">Tyler, The Creator</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="left">City Girls</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">Dean Lewis</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">Kenny Chesney</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">Lady Antebellum</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">Lauren Daigle</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Baby &amp; DaBaby</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">Post Malone Featuring Young Thug</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">Roddy Ricch</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">Trevor Daniel</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">Y2K &amp; bbno$</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">A Boogie Wit da Hoodie Featuring 6ix9ine</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Bad Bunny &amp; Tainy</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Blanco Brown</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Blueface</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Camila Cabello</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Cardi B &amp; Bruno Mars</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Chase Rice</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Chris Brown Featuring Gunna</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Chris Lane</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">DaBaby Featuring Offset</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Doja Cat</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Doja Cat &amp; Tyga</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Ellie Goulding &amp; Juice WRLD</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Ellie Goulding X Diplo Featuring Swae Lee</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Juice WRLD &amp; YoungBoy Never Broke Again</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Lee Brice</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Matt Stell</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Megan Thee Stallion Featuring DaBaby</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Offset Featuring Cardi B</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">P!nk</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Pedro Capo X Farruko</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Pinkfong</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Post Malone Featuring Ozzy Osbourne &amp; Travis Scott</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Riley Green</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Saweetie</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Sech, Darell, Nicky Jam, Ozuna &amp; Anuel AA</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Summer Walker X Drake</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Taylor Swift Featuring Brendon Urie</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">The Black Eyed Peas X J Balvin</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">YNW Melly</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Yo Gotti Featuring Lil Baby</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Young Thug, J. Cole &amp; Travis Scott</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Karol G &amp; Nicki Minaj</td>
+<td align="right">19</td>
+</tr>
+<tr class="even">
+<td align="left">YG, Tyga &amp; Jon Z</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">YNW Melly &amp; 9lokknine</td>
+<td align="right">19</td>
+</tr>
+<tr class="even">
+<td align="left">YNW Melly &amp; Juice WRLD</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">Anuel AA, Daddy Yankee, Karol G, Ozuna &amp; J Balvin</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Camila Cabello Featuring DaBaby</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">Eli Young Band</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Post Malone Featuring DaBaby</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">Russ &amp; BIA</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Scotty McCreery</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">YNW Melly Featuring Kanye West</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Bad Bunny Featuring Drake</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="left">Beyonce</td>
+<td align="right">17</td>
+</tr>
+<tr class="even">
+<td align="left">Justin Bieber</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="left">Lunay, Daddy Yankee &amp; Bad Bunny</td>
+<td align="right">17</td>
+</tr>
+<tr class="even">
+<td align="left">Ali Gatie</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Cody Johnson</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">Dierks Bentley</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Future</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">H.E.R. Featuring YG</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Jhene Aiko</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">Jimmie Allen</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Justin Moore</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">Marshmello Featuring CHVRCHES</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Meek Mill Featuring Ella Mai</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">Megan Thee Stallion, Nicki Minaj &amp; Ty Dolla $ign</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">Russell Dickerson</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">The Chainsmokers Featuring 5 Seconds Of Summer</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">DaniLeigh Featuring Chris Brown</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">DJ Khaled Featuring Cardi B &amp; 21 Savage</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Gabby Barrett</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Ingrid Andress</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Joji</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Katy Perry</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Keith Urban</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Kodak Black Featuring Travis Scott &amp; Offset</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Layton Greene, Lil Baby, City Girls &amp; PnB Rock</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Tjay</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Niall Horan</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Roddy Ricch Featuring Mustard</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">Summer Walker &amp; Usher</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Billie Eilish &amp; Khalid</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">Brantley Gilbert + Lindsay Ell</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">Cardi B, Bad Bunny &amp; J Balvin</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">Carly Pearce &amp; Lee Brice</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">Chris Stapleton</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">Cole Swindell</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">DJ Snake Featuring Selena Gomez, Ozuna &amp; Cardi B</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">Jhay Cortez, J Balvin &amp; Bad Bunny</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">Kanye West</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">Kodak Black</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">Mac Miller</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">The Chainsmokers &amp; Bebe Rexha</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">Anuel AA &amp; Romeo Santos</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">Blake Shelton Duet With Gwen Stefani</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Chris Janson</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">Chris Young</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">DaBaby Featuring Lil Baby &amp; Moneybagg Yo</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">DJ Khaled Featuring SZA</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Eric Church</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">Future Featuring Drake</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Imagine Dragons</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">J Balvin &amp; Bad Bunny</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">JACKBOYS Featuring Young Thug</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">Roddy Ricch &amp; Gunna</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">Ariana Grande &amp; Social House</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">Chris Brown</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">City Girls Featuring Cardi B</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">Don Toliver</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Ed Sheeran Featuring Camila Cabello &amp; Cardi B</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">Eminem Featuring Juice WRLD</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Gucci Mane X Bruno Mars X Kodak Black</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">Idina Menzel &amp; AURORA</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Anuel AA &amp; Karol G</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Bryce Vine Featuring YG</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Diplo Presents Thomas Wesley Featuring Morgan Wallen</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Drake</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Flipp Dinero</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Khalid &amp; Kane Brown</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Khalid Featuring A Boogie Wit da Hoodie</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Wayne</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Nipsey Hussle Featuring Roddy Ricch &amp; Hit-Boy</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Sheck Wes</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Ski Mask The Slump God</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Andy Williams</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Brett Eldredge</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Ed Sheeran Featuring Chance The Rapper &amp; PnB Rock</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Lady Gaga</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Lukas Graham</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Mabel</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Mark Ronson Featuring Miley Cyrus</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">NAV Featuring Meek Mill</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Normani</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Pardison Fontaine Featuring Cardi B</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">The Chainsmokers Featuring Kelsea Ballerini</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Tory Lanez &amp; T-Pain</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">A Boogie Wit da Hoodie Featuring Offset &amp; Tyga</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Alec Benjamin + Alessia Cara</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">BrockHampton</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Gene Autry</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Jack Harlow</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Justin Bieber Featuring Quavo</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Kehlani Featuring Ty Dolla $ign</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Kygo X Whitney Houston</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Mosey</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Nas X &amp; Cardi B Or Nas</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Peep &amp; iLoveMakonnen Featuring Fall Out Boy</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Michael Ray</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Midland</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Miley Cyrus</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Ozuna x Daddy Yankee x J Balvin x Farruko x Anuel AA</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">XXXTENTACION x Lil Pump Featuring Maluma &amp; Swae Lee</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Young Thug Featuring Lil Baby</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Ant Saunders</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">BTS Featuring Halsey</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Chance The Rapper Featuring MadeinTYO &amp; DaBaby</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Dierks Bentley Featuring Brothers Osborne</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Jacquees</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Khalid x Disclosure</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Loud Luxury Featuring Brando</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Mariah Carey</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Pop Smoke</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Sarah Jeffery</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Tory Lanez &amp; Rich The Kid</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Ariana Grande, Miley Cyrus &amp; Lana Del Rey</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">Bazzi Featuring Camila Cabello</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Demi Lovato</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">French Montana Featuring Drake</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Khalid &amp; Normani</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">Nicki Minaj</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Polo G Featuring NLE Choppa &amp; Stunna 4 Vegas</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">Roddy Ricch Featuring A Boogie Wit da Hoodie</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Trippie Redd Featuring DaBaby</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">XXXTENTACION</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Zara Larsson</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">benny blanco &amp; Juice WRLD Featuring Brendon Urie</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Bobby Helms</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Brenda Lee</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Burl Ives</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Dean Martin</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Eminem</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">FLETCHER</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Gesaffelstein &amp; The Weeknd</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Gunna</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Lauv &amp; Troye Sivan</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Baby &amp; 42 Dugg</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Dicky</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Logic Featuring Eminem</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Mustard featuring NAV, Playboi Carti &amp; A Boogie Wit da Hoodie</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Nicky Jam X Ozuna</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Noah Cyrus Featuring Leon Bridges</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Surfaces</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">SZA X Justin Timberlake</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Trippie Redd</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Wham!</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Yella Beezy, Gucci Mane &amp; Quavo</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">benny blanco, Tainy, Selena Gomez &amp; J Balvin</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">BTS</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Garth Brooks &amp; Blake Shelton</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Jose Feliciano</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Yachty, Drake &amp; DaBaby</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">MoneyBagg Yo Featuring Lil Baby</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Nat King Cole</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Post Malone Featuring Future &amp; Halsey</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Rich The Kid</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Runaway June</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">The Ronettes</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Avicii Featuring Aloe Blacc</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Bad Bunny, Jowell &amp; Randy &amp; Nengo Flow</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">BENEE Featuring Gus Dapperton</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">BLACKPINK</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Blueface &amp; Rich The Kid</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">DJ Khaled Featuring Meek Mill, J Balvin, Lil Baby &amp; Jeremih</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Ed Sheeran &amp; Travis Scott</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Future &amp; Juice WRLD</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Internet Money, Lil Tecca &amp; A Boogie Wit da Hoodie</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Jhene Aiko Featuring H.E.R.</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Baby Featuring Future</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Mosey x Gunna</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Skies</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Logic</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Luke Combs Featuring Eric Church</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Moneybagg Yo X Megan Thee Stallion</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Offset</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Post Malone Featuring Meek Mill &amp; Lil Baby</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Powfu Featuring beabadoobee</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Roddy Ricch Featuring Meek Mill</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Silk City x Dua Lipa</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Thomas Rhett Featuring Jon Pardi</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Trippie Redd Featuring Juice WRLD &amp; YNW Melly</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A Boogie Wit da Hoodie Featuring Juice WRLD</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">A Boogie Wit da Hoodie Featuring Roddy Ricch, Gunna &amp; London On Da Track</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Alicia Keys</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Ambjaay</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Baby Keem</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Bad Bunny &amp; Sech</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Bazzi</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Big Sean</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Dreamville Featuring J. Cole, Lute &amp; DaBaby</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">French Montana Featuring Post Malone, Cardi B &amp; Rvssian</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Future Featuring Travis Scott</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Idina Menzel &amp; Evan Rachel Wood</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Jhene Aiko Featuring Big Sean</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Kip Moore</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Miranda Lambert</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Nicki Minaj Featuring Lil Wayne</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Nipsey Hussle Featuring Belly &amp; DOM KENNEDY</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Nipsey Hussle Featuring YG</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">NLE Choppa Featuring Roddy Ricch</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">PARTYNEXTDOOR Featuring Drake</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Perry Como And The Fontane Sisters With Mitchell Ayres And His Orchestra</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Rick Ross Featuring Drake</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Rod Wave &amp; Kevin Gates</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">SAINt JHN</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Shawn Mendes X Zedd</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Ski Mask The Slump God Featuring Juice WRLD</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Summer Walker Featuring Jhene Aiko</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Young Thug</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">2 Chainz Featuring Ariana Grande</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">6ix9ine Featuring Tory Lanez</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">A Boogie Wit da Hoodie Featuring Lil Uzi Vert</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Ariana Grande &amp; Victoria Monet</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Ashe</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Bad Bunny X Daddy Yankee</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Bing Crosby</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">BTS Featuring Lauv</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Chuck Berry</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">DaBaby Featuring Kevin Gates</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">DaBaby Featuring Migos</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Darlene Love</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">DJ Khaled Featuring Nipsey Hussle &amp; John Legend</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">DJ Snake, J. Balvin &amp; Tyga</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Don Toliver Featuring Quavo &amp; Offset</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Dreamville Featuring JID, Bas, J. Cole, EARTHGANG &amp; Young Nudy</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Ed Sheeran With Chris Stapleton &amp; Bruno Mars</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Elvis Presley</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Eminem Featuring Ed Sheeran</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Eminem Featuring Joyner Lucas</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Eminem Featuring Royce da 5’9&quot; &amp; White Gold</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Eminem Featuring Young M.A</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Frank Ocean</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Frank Sinatra</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">G Herbo Featuring Chance The Rapper, Juice WRLD &amp; Lil Uzi Vert</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">JACKBOYS &amp; Sheck Wes</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">JACKBOYS Featuring Don Toliver</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">John Legend</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Joyner Lucas Featuring Logic</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">JP Saxe Featuring Julia Michaels</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Justin Bieber Featuring Post Malone &amp; Clever</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Kane Brown &amp; John Legend</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Kelly Clarkson</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Lana Del Rey</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Baby Featuring Lil Uzi Vert</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Pump</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Uzi Vert &amp; 21 Savage</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Uzi Vert Featuring Chief Keef</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Wayne Featuring Big Sean &amp; Lil Baby</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Lil’ Duval Featuring Snoop Dogg &amp; Ball Greezy</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Meek Mill Featuring Jeremih &amp; PnB Rock</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Meek Mill Featuring Roddy Ricch</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Metro Boomin Featuring Gunna</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Mitchell Tenpenny</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">NAV, Gunna &amp; Travis Scott</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Nipsey Hussle Featuring Kendrick Lamar</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Olivia Rodrigo</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">PARTYNEXTDOOR &amp; Rihanna</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Perry Como</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Post Malone Featuring SZA</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">ScHoolboy Q</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">SZA, The Weeknd &amp; Travis Scott</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Tainy, Anuel AA &amp; Ozuna</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">The Chainsmokers &amp; ILLENIUM Featuring Lennon Stella</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Travis Denning</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Trippie Redd Featuring Lil Baby &amp; Lil Duke</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Tyga &amp; Nicki Minaj</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">2 Chainz Featuring Kendrick Lamar</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">2 Chainz Featuring Travis Scott</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">24kGoldn</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">A Boogie Wit da Hoodie Featuring DaBaby</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">A Boogie Wit da Hoodie Featuring Young Thug</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">A$AP Rocky</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Alicia Keys Featuring Miguel</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Anuel AA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Aventura</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Avicii</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Bad Bunny &amp; Yaviah</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Bad Bunny X Anuel AA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Bebe Rexha</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Beyonce, JAY-Z &amp; Childish Gambino Featuring Oumou Sangare</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Beyonce, SAINt JHN &amp; Wizkid Featuring Blue Ivy Carter</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Big Sean Featuring A$AP Ferg &amp; Hit-Boy</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Blake Shelton Featuring Trace Adkins</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Chance The Rapper Featuring Death Cab For Cutie</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Chance The Rapper Featuring John Legend</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Chris Brown Featuring Justin Bieber &amp; Ink</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">DaBaby &amp; Nicki Minaj</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">DaBaby Featuring Chance The Rapper, Gucci Mane &amp; YK Osiris</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">DaBaby Featuring Stunna 4 Vegas</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">DJ Khaled Featuring Chris Brown, Lil Wayne &amp; Big Sean</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">DJ Khaled Featuring Meek Mill &amp; Lil Baby</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">DJ Khaled Featuring Travis Scott &amp; Post Malone</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Dove Cameron, Sofia Carson, Booboo Stewart, Cameron Boyce, Thomas Doherty, China Anne McClain &amp; Dylan Playfair</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Dreamville Featuring Bas, JID, Guapdad 4000, Reese LAFLARE, Jace, Mez, Smokepurpp, Buddy &amp; Ski Mask The Slump God</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Ed Sheeran Featuring Eminem &amp; 50 Cent</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Ed Sheeran Featuring YEBBA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Eminem Featuring Anderson .Paak</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Eminem Featuring Don Toliver</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Eminem Featuring Skylar Grey</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Fat Joe &amp; Dre Featuring Eminem &amp; Mary J. Blige</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Five Finger Death Punch Featuring Kenny Wayne Shepherd, Brantley Gilbert &amp; Brian May</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">for KING &amp; COUNTRY</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">French Montana Featuring Blueface &amp; Lil Tjay</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Gucci Mane Featuring Kodak Black &amp; London On Da Track</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Gunna Featuring Playboi Carti</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Gunna Featuring Young Thug</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Hikaru Utada &amp; Skrillex</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Iggy Azalea</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">j-hope Featuring Becky G.</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">JACKBOYS, Pop Smoke &amp; Travis Scott</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Jhene Aiko Featuring Future &amp; Miguel</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">John &amp; Yoko/The Plastic Ono Band With The Harlem Community Choir</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">John Mayer</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">John Rich Featuring The Five</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Justin Bieber Featuring Kehlani</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Kacey Musgraves</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Kanye West Featuring Ant Clemons</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Kanye West Featuring Clipse &amp; Kenny G</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Kanye West Featuring Fred Hammond</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Kanye West Featuring Sunday Service Choir</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Kanye West Featuring Ty Dolla $ign &amp; Ant Clemons</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Kelsea Ballerini x Halsey</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Kevin Gates</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Khalid With John Mayer</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Khalid x SAFE</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Baby &amp; Moneybagg Yo</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Baby &amp; Young Thug</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Baby Featuring Lil Wayne</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Pump Featuring Lil Wayne</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Uzi Vert Featuring Future</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Uzi Vert Featuring Lil Durk</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Uzi Vert Featuring NAV</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Uzi Vert Featuring Syd</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Uzi Vert Featuring Young Nudy</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Lil Uzi Vert Featuring Young Thug</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Lil Uzi Vert Featuring Young Thug &amp; Gunna</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Luke Combs &amp; Brooks &amp; Dunn</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Maluma</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Marshmello</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Marshmello Featuring A Day To Remember</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Marshmello, Tyga &amp; Chris Brown</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Martin Garrix Featuring Macklemore &amp; Patrick Stump</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Meek Mill Featuring Justin Timberlake</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Meghan Trainor Featuring Nicki Minaj</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Michael Jackson</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Migos, Young Thug &amp; Travis Scott</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Moneybagg Yo Featuring DaBaby</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">NAV Featuring The Weeknd</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Nipsey Hussle Featuring Stacy Barthe</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Offset Featuring J. Cole</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Offset Featuring Travis Scott &amp; 21 Savage</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Ozuna</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">P!nk Featuring Chris Stapleton</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">PnB Rock &amp; XXXTENTACION</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Pop Smoke Featuring Quavo</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">ScHoolboy Q + Travis Scott</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">ScHoolboy Q Featuring 21 Savage</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Summer Walker Featuring A Boogie Wit da Hoodie</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Swae Lee Featuring Drake</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Taylor Swift Featuring Dixie Chicks</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Thomas Rhett Featuring Reba McEntire, Hillary Scott, Chris Tomlin &amp; Keith Urban</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Thurl Ravenscroft</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Tool</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Tory Lanez Featuring Chris Brown</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Tory Lanez Featuring Snoop Dogg</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Trippie Redd Featuring YoungBoy Never Broke Again</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">XXXTENTACION Featuring PnB Rock &amp; Trippie Redd</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">YG</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Young Thug Featuring Future</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Young Thug Featuring Lil Uzi Vert</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Young Thug Featuring Machine Gun Kelly</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Zedd &amp; Katy Perry</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

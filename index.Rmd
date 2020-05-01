@@ -1,0 +1,38 @@
+---
+title: "Artists and Songs on Billboard's Hot 100 Chart (2019-2020 YTD)"
+author: "Jeny Kwon"
+date: "4/29/2020"
+output: 
+  html_document:
+    df_print: kable
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+---
+
+The following table shows which artists and songs have made Billboard's Hot 100 Chart during a 68-week period in 2019 and 2020. The table is arranged by the number of times each song made the chart. 
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE,  fig.width = 7.5, fig.height = 3.5)
+
+library(tidyverse)
+library(rvest)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+```
+
+```{r}
+# Read csv file
+top100 <- read_csv("data/top_songs.csv")
+```
+
+```{r}
+by_artist <- top100 %>% 
+  select(!week) %>% 
+  group_by(artist) %>% 
+  summarize(number = n()) %>%
+  arrange(desc(number))
+
+kable(by_artist, caption = "Top Artists and Song  (source = https://www.billboard.com/charts/hot-100)", col.names = c("Artist", "Frequency"))
+```
